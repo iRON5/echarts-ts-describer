@@ -201,6 +201,7 @@ function getCorrectType(item) {
         .replace('array', 'any[]')
         .replace('*', 'any')
         .replace('color', 'string')
-        .replace('numbr', 'number');
+        .replace('numbr', 'number')
+        .replace('function', 'Function');
 }
 
