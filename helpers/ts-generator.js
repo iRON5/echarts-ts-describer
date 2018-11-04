@@ -13,7 +13,7 @@ const tsGenerator = {
     async restructure(item) {
         this.progressBar.processMessage = `Generating interface ${item.typeEnum}...`;
 
-        const tsInterface = await generateTsInterface(item);
+        const tsInterface = await generateNamespace(item);
 
         this.progressBar.updateProgressBar();
 
@@ -23,11 +23,19 @@ const tsGenerator = {
 
 module.exports = tsGenerator;
 
+async function generateNamespace(item) {
+    const tsNamespace = `declare namespace echarts {$interface}\n`;
+    const interface = await generateTsInterface(item);
+
+    return tsNamespace.replace(/\$interface/, interface);
+}
+
 async function generateTsInterface(item) {
     tsGenerator.progressBar.processMessage = `    Creating ${item.typeEnum} Interface comment...`;
 
-    const comment = await getPropertyComment(item, 0, item.typeEnum);
-    const tsInterface = `${comment}\ninterface $name {$props\n}\n`;
+    const comment = await getPropertyComment(item, 1, item.typeEnum);
+    const tabs = '    '.repeat(1);
+    const tsInterface = `${comment}\n${tabs}interface $name {$props\n${tabs}}\n`;
     const capitalizedName = item.typeEnum[0].toUpperCase() + item.typeEnum.slice(1);
     let props = ``;
 
@@ -35,7 +43,7 @@ async function generateTsInterface(item) {
         const child = item.children[i];
         const path = `${item.typeEnum}.${encodeURIComponent(child.propertyName)}`;
 
-        props += await getTsProps(child, 1, path);
+        props += await getTsProps(child, 2, path);
     }
 
     return tsInterface
