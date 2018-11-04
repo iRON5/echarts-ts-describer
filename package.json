@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Helps generate huge amount of echarts definitions",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "progress": "^2.0.1",
     "turndown": "^5.0.1"
