@@ -39,7 +39,7 @@ function fixRelativeLinks(content, node, options) {
 
     node.href = correctHref.startsWith('http')
         ? correctHref
-        : `${this.baseSeeUrl}${correctHref}`;
+        : `${markdown.baseSeeUrl}${correctHref}`;
 
     const link = options.rules.inlineLink.replacement(content, node, options);
 
@@ -61,7 +61,7 @@ function replaceExamples(_content, node, options) {
     const a = node.ownerDocument.createElement('a');
     const linkContent = 'see doc';
 
-    a.href = this.currentItemUrl;
+    a.href = markdown.currentItemUrl;
     a.textContent = linkContent;
 
     return fixRelativeLinks(linkContent, a, options);
