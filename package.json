@@ -1,0 +1,23 @@
+{
+  "name": "echarts-ts-describer",
+  "version": "1.0.0",
+  "description": "Helps generate huge amount of echarts definitions",
+  "main": "index.js",
+  "dependencies": {
+    "progress": "^2.0.1",
+    "turndown": "^5.0.1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=8.9.3"
+  },
+  "os": [
+    "darwin"
+  ],
+  "keywords": [
+    "echarts",
+    "typescript"
+  ],
+  "author": "https://github.com/iRON5",
+  "license": "MSI"
+}
