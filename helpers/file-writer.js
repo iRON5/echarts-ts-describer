@@ -39,12 +39,15 @@ module.exports = fileWriter;
 
 function getFileForWrite(interface, readStream) {
     const interfaceName = interface.match(/interface (.+) {/)[1];
-    const fileName = `${fileWriter.sourceDir}/echarts.${interfaceName}.d.ts`;
-    const fileStream = fs.createWriteStream(fileName);
+
+    // kebab case
+    const fileName = interfaceName.replace(/([A-Z])/g, '-$1').toLowerCase().slice(1);
+    const filePath = `${fileWriter.sourceDir}/${fileName}.d.ts`;
+    const fileStream = fs.createWriteStream(filePath);
 
     readStream.safePipe(fileStream);
 
-    fileWriter.progressBar.processMessage = `Writing file "${fileName}..."`;
+    fileWriter.progressBar.processMessage = `Writing file "${filePath}..."`;
 
     return fileStream;
 }
