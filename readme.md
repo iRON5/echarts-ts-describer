@@ -1,14 +1,14 @@
 # Echarts TS Describer
 
-Helps generate huge amount of ts definitions for echarts.
+Helps convert huge echarts documentation to typescript definitions.
 
 ---
 
-It was developed to generate doc for echarts.series but it can be used for any other options field.
-As echarts is huge it is preferred to use it partially for specific options field.
+It was developed to generate doc for `echarts.series` but it can be used for any other options field.
+As echarts is huge it is preferred to use this tool for specific options field (otherwise compilation time could be too big and review will too painful).
 
 ## How to retrieve echarts doc data (for Chrome):
-1. Go to echarts options doc https://ecomfe.github.io/echarts-doc/public/en/option.html
+1. Go to echarts options [documentation](https://ecomfe.github.io/echarts-doc/public/en/option.html)
 2. Go to dev tools and open `main.js?<some hash>`
 3. Press "Pretty print" and look for a line like this:
 ```js
@@ -51,3 +51,10 @@ copy(f._dataItemMap.root.children[24]);
 ```
 
 Now Chrome should copy this object to clipboard and you can put it into `json` file.
+
+Review generated doc and contribute to [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/echarts)
+
+---
+
+## Licence
+MIT

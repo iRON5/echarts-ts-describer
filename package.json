@@ -1,7 +1,7 @@
 {
   "name": "echarts-ts-describer",
   "version": "1.0.0",
-  "description": "Helps generate huge amount of echarts definitions",
+  "description": "Helps convert huge amount of echarts documentation to its typescript definitions",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -22,5 +22,5 @@
     "typescript"
   ],
   "author": "https://github.com/iRON5",
-  "license": "MSI"
+  "license": "MIT"
 }
