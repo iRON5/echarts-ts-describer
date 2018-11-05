@@ -15,6 +15,7 @@ As echarts is huge it is preferred to use it partially for specific options fiel
 f.isFrozen() || f._toggleSingleItem(f._findItemEl(i(this)))
 ```
 , it should be placed inside of `_initMouse` function.
+
 4. Set debugger on this line
 5. Click expand button on UI options sidebar (debugger should stop on this line)
 6. Enter to console (to observe whole data):
